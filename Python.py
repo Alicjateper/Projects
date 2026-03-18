@@ -1,21 +1,45 @@
-# age = 23
-age = 28
+# import os
 
-if age >= 18:
-    print("Jestes dorosły")
-else:
-    print("Jesteś za młody")
+# project_structure = {
+#     'Programowanie Python': ['Cwiczenia', 'Zadania domowe'],
+#     'NumPy': ['NumPy I', 'NumPy II'],
+#     'Pandas': ['Pandas I', 'Pandas II'],
+#     'Project': ['tekst1', 'tekst2']
+# }
+# def create_project_structure(Data_Science, structure):
+# # Tworzenie głównego folderu
+#     os.makedirs(Data_Science, exist_ok=True)
+#     print(f"Utworzono projekt: {Data_Science}/")
+# # Tworzenie podfolderów
+# for folder, subfolders in structure.items():
+#     folder_path = os.path.join(Data_Science, folder)
+#     os.makedirs(folder_path, exist_ok=True)
+#     print(f" ├── {folder}/")
+    
+# create_project_structure("Data_Science", project_structure)
 
-isDrunk = False # zmienna logiczna, czy osoba jest trzeźwa
+import os
 
-if age >= 18 and not isDrunk:
-    print("Jesteś trzeżwy i dorosły")
-else:
-    print("Jesteś nietrzeźwy")
+project_structure = {
+    'Programowanie Python': ['Cwiczenia', 'Zadania domowe'],
+    'NumPy': ['NumPy I', 'NumPy II'],
+    'Pandas': ['Pandas I', 'Pandas II'],
+    'Project': ['tekst1', 'tekst2']
+}
 
-isRestriction = False
+def create_project_structure(Data_Science, structure):
+    # główny folder
+    os.makedirs(Data_Science, exist_ok=True)
 
-if age >= 18 and not isDrunk and not isRestriction:
-    print("Jesteś trzeżwy i dorosły")
-else:
-    print("Jesteś nietrzeźwy")
+    # podfoldery
+    for folder, subfolders in structure.items():
+        folder_path = os.path.join(Data_Science, folder)
+        os.makedirs(folder_path, exist_ok=True)
+
+        for subfolder in subfolders:
+            subfolder_path = os.path.join(folder_path, subfolder)
+            os.makedirs(subfolder_path, exist_ok=True)
+
+create_project_structure("Data_Science", project_structure)
+
+print("Gotowe!")
